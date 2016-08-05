@@ -61,8 +61,8 @@ Sign Up with our Sytylist</button>
 <div class="well">
   <h3>Enter New Location for Venue</h3>
   <form class="" action="venue/new" method="post">
-  <label for="new-name">Location Name:</label>
-  <input type="text" name="new-name" id="new-name" value="">
+  <label for="new-venue-name">Location Name:</label>
+  <input type="text" name="new-venue-name" id="new-venue-name" value="">
   <button type="submit" name="button" class="btn btn-success" ><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 Add Now!</button>
   </form>
@@ -103,11 +103,11 @@ Delete</button>
 
   <div class="well">
     <h3>Enter New Band</h3>
-    <form class="" action="band/new" method="post">
+    <form class="" action="/band/new" method="post">
     <label for="new-band-name">Name:</label>
     <input type="text" name="new-band-name" id="new-band-name" value="">
     <label for="new-band-date">Date:</label>
-    <input type="datetime" name="new-band-date" id="new-band-date" value="">
+    <input type="date" name="new-band-date" id="new-band-date" value="">
     <button type="submit" name="button" class="btn btn-success" ><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
   Add New Band Now!</button>
     </form>
