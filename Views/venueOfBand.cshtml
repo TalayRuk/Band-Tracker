@@ -1,9 +1,14 @@
 @{
     Layout = "Views/Shared/_Layout.cshtml";
 }
-
+@if(@Model["venues"].Count!=0){
 <h1> Here is All Bands Under My Venue @Model["band"].GetName();</h1>
 @foreach(var v in @Model["venues"])
 {
   <h2>Venue Names :@v.GetName()</h2>
 }
+}else{
+
+  <h1>You Haven't add Any Venue In this Band</h1>
+}
+<a href="/">Home</a>

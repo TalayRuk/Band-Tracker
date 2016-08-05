@@ -8,10 +8,10 @@ body
 #message{
   text-align: center
 }
-.viewAllBand:hover{
-  color:yellow;
+.viewBand:hover{
+  color:black;
 }
-.viewAllBand{
+.viewBand{
   color:white;
 }
 .glyphicon-envelope{
@@ -21,4 +21,19 @@ body
 }
 .displayNone{
   display: none;
+}
+.btn-block{
+  width: 25%;
+  float: left;
+}
+.container{
+  width: 80%;
+}
+.deletedAllButton{
+  width:100%;
+  padding: 20px;
+  font-size: 2vh;
+  color: azure;
+  background-color: cadetblue;
+  border-radius: 20px;
 }

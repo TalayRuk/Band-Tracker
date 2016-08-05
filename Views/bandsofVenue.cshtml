@@ -1,10 +1,17 @@
 @{
     Layout = "Views/Shared/_Layout.cshtml";
 }
-
-<h1> Here is All Bands Under My Venue @Model["venue"].GetName();</h1>
-@foreach(var b in @Model["bands"])
+@if(Model["bands"].Count!=0)
 {
-  <h2>Band Names :@b.GetName()</h2>
-  <h2>Create Date : @b.GetCreateDate()</h2>
+  <h1> Here is All Bands Under My Venue @Model["venue"].GetName();</h1>
+  @foreach(var b in @Model["bands"])
+  {
+    <h2>Band Names :@b.GetName()</h2>
+    <h2>Create Date : @b.GetCreateDate()</h2>
+  }
+
+}else{
+
+  <h1>You Haven't add Any Band In this Venue</h1>
 }
+<a href="/">Home</a>

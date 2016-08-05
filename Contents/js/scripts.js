@@ -12,4 +12,9 @@ function inputEvent(){
   var temp=$(this).val();
   $(this).parent().parent().find("span.editNameInputDisplay").text(temp);
 }
+
+$(".addRelationshipForm").addClass("displayNone");
+  $(".addRelationshipButton").click(function(){
+    $(this).next().toggleClass("displayNone");
+  });
 });

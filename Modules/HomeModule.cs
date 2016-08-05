@@ -73,8 +73,8 @@ namespace BandTracker
         return View["index.cshtml", model];
       };
 
-      Post["/add/band/addVenue/{id}"]=parameters=>{
-        Band newBand= Venue.Find(parameters.id);
+      Post["/band/addVenue/{id}"]=parameters=>{
+        Band newBand= Band.Find(parameters.id);
         Venue newVenue= Venue.Find(Request.Form["addVenues-id"]);
 
         newBand.AddVenue(newVenue);
@@ -90,8 +90,26 @@ namespace BandTracker
         info.Add("venues",venueOfBand);
 
         return View["venueOfBand.cshtml", info];
-
       };
+
+      Post["/deleteAll/Venues"]=_=>{
+        Venue.DeleteAll();
+        Dictionary<string,object> model=Member.AllData("Welcome");
+        return View["index.cshtml", model];
+      };
+
+        Post["/deleteAll/Bands"]=_=>{
+          Band.DeleteAll();
+          Dictionary<string,object> model=Member.AllData("Welcome");
+          return View["index.cshtml", model];
+        };
+
+        Post["/deleteAll"]=_=>{
+          Venue.DeleteAll();
+          Band.DeleteAll();
+          Dictionary<string,object> model=Member.AllData("Welcome");
+          return View["index.cshtml", model];
+        };
 
     }
   }
