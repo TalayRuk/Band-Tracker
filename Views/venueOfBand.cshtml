@@ -1,0 +1,9 @@
+@{
+    Layout = "Views/Shared/_Layout.cshtml";
+}
+
+<h1> Here is All Bands Under My Venue @Model["band"].GetName();</h1>
+@foreach(var v in @Model["venues"])
+{
+  <h2>Venue Names :@v.GetName()</h2>
+}

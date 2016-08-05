@@ -30,30 +30,28 @@ Delete</button>
           </form>
         </div>
         <div class="ViewBand">
-          <button type="button" class="btn btn-success btn-lg btn-block" ><a class="viewAllBand" href="/view/venue/@venue.GetId()"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <button type="button" class="btn btn-success btn-lg btn-block" ><a class="" href="/view/venue/@venue.GetId()"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 View All Band Host In My Place</a></button>
         </div>
     </div>
-         }
+
          <div class="well">
            <h3>Add Your Band Name to Our Venue</h3>
-           <form class="" action="add/band/addVenue" method="post">
-             <label for="new-name">Your Band Name:</label>
-             <input type="text" name="new-name" id="new-name" value="" >
-
-             <select name="venue-id">
-              @foreach (var venue in Model["venue"])
+           <form class="" action="/venue/addBands/@venue.GetId()" method="post">
+             <select name="addBands-id">
+              @foreach (var b in Model["band"])
               {
-                <option value="@venue.GetId()">@venue.GetName()</option>
+                <option value="@b.GetId()">@b.GetName()</option>
               }
             </select>
-             <button type="submit" class="btn btn-success" name="button" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-Sign Up with our Sytylist</button>
+             <button type="submit" class="btn btn-success" name="button" >
+               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+               Add Now</button>
            </form>
 
          </div>
 
-
+}
 }else
 {
 <h1>We don't have any venues now. Enter New Venue</h1>
@@ -98,6 +96,30 @@ Change to New Name</button>
 Delete</button>
           </form>
       </div>
+
+
+
+      <div class="well">
+        <h3>Add Your Band Name to Our Venue</h3>
+        <form class="" action="/band/addVenue/@band.GetId()" method="post">
+          <select name="addVenues-id">
+           @foreach (var v in Model["venue"])
+           {
+             <option value="@v.GetId()">@v.GetName()</option>
+           }
+         </select>
+          <button type="submit" class="btn btn-success" name="button" >
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Add Now</button>
+        </form>
+
+      </div>
+
+      <div class="ViewBand">
+        <button type="button" class="btn btn-success btn-lg btn-block" ><a class="" href="/view/bands/@band.GetId()"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+View Place I ordered it</a></button>
+      </div>
+
         }
   }else{
 

@@ -32,6 +32,25 @@ namespace BandTracker
         return View["index.cshtml", model];
       };
 
+      Post["/venue/addBands/{id}"]=parameters=>{
+        Venue newVenue= Venue.Find(parameters.id);
+        Band newBand= Band.Find(Request.Form["addBands-id"]);
+
+        newVenue.AddBand(newBand);
+        Dictionary<string,object> model=Member.AllData("Welcome");
+        return View["index.cshtml", model];
+      };
+
+      Get["/view/venue/{id}"]=parameters=>{
+        Venue newVenue= Venue.Find(parameters.id);
+        List<Band> bandsofVenue=newVenue.GetBands();
+        Dictionary<string,object> info = new Dictionary<string,object>{};
+        info.Add("venue",newVenue);
+        info.Add("bands",bandsofVenue);
+
+        return View["bandsofVenue.cshtml", info];
+
+      };
 
       Post["/band/new"]=_=>{
         Band newBand= new Band(Request.Form["new-band-name"],Request.Form["new-band-date"]);
@@ -53,6 +72,27 @@ namespace BandTracker
         Dictionary<string,object> model=Member.AllData("Welcome");
         return View["index.cshtml", model];
       };
+
+      Post["/add/band/addVenue/{id}"]=parameters=>{
+        Band newBand= Venue.Find(parameters.id);
+        Venue newVenue= Venue.Find(Request.Form["addVenues-id"]);
+
+        newBand.AddVenue(newVenue);
+        Dictionary<string,object> model=Member.AllData("Welcome");
+        return View["index.cshtml", model];
+      };
+
+      Get["/view/bands/{id}"]=parameters=>{
+        Band newBand= Band.Find(parameters.id);
+        List<Venue> venueOfBand=newBand.GetVenues();
+        Dictionary<string,object> info = new Dictionary<string,object>{};
+        info.Add("band",newBand);
+        info.Add("venues",venueOfBand);
+
+        return View["venueOfBand.cshtml", info];
+
+      };
+
     }
   }
 }
