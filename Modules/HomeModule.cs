@@ -24,6 +24,13 @@ namespace BandTracker
         Dictionary<string,object> model=Member.AllData("Welcome");
         return View["index.cshtml", model];
       };
+      Patch["/edit/venue/{id}"]=parameters=>{
+
+        Venue newVenue= Venue.Find(parameters.id);
+        newVenue.Update(Request.Form["edit-venue-name"]);
+        Dictionary<string,object> model=Member.AllData("Welcome");
+        return View["index.cshtml", model];
+      };
 
 
       Post["/band/new"]=_=>{
@@ -35,6 +42,14 @@ namespace BandTracker
       Delete["/delete/band/{id}"]=parameters=>{
         Band newBand= Band.Find(parameters.id);
         newBand.Delete();
+        Dictionary<string,object> model=Member.AllData("Welcome");
+        return View["index.cshtml", model];
+      };
+
+      Patch["/edit/band/{id}"]=parameters=>{
+
+        Band newBand= Band.Find(parameters.id);
+        newBand.Update(Request.Form["edit-band-name"],Request.Form["edit-band-date"]);
         Dictionary<string,object> model=Member.AllData("Welcome");
         return View["index.cshtml", model];
       };

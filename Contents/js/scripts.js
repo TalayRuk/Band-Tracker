@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-$(".editStylistForm form").hide();
-  $(".editStylistButton").click(function(){
-    $(this).next().show();
+$("form.editButtonShow").addClass("displayNone");
+  $(".editButton").click(function(){
+    $(this).next().toggleClass("displayNone");
   });
 
 

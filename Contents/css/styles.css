@@ -19,3 +19,6 @@ body
   padding-right: 10px;
   color: green;
 }
+.displayNone{
+  display: none;
+}

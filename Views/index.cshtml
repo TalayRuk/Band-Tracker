@@ -10,11 +10,11 @@
   {
     <div class="displayPerson contanier">
 
-      <div class="editVenueForm">
+      <div class="editForm">
         <h2>Venue #@venue.GetId():<span class="editNameInputDisplay"> @venue.GetName()</span></h2>
-        <button type="button" name="button" class="editVenueButton btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        <button type="button" name="button" class="editButton btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 Edit</button>
-            <form action="/edit/venue/@venue.GetId()" method="post" class="">
+            <form action="/edit/venue/@venue.GetId()" method="post" class="editButtonShow">
               <input type="hidden" name="_method" value="PATCH">
 
               <label for="edit-venue-name">Enter New Name</label>
@@ -75,14 +75,18 @@ Add Now!</button>
     <h1>All our Bands</h1>
     @foreach(var band in Model["band"])
     {
-      <div class="editVenueForm">
+      <div class="editForm">
         <h2>Band #@band.GetId():<span class="editNameInputDisplay"> @band.GetName()  | Create Date @band.GetCreateDate()<span></h2>
-        <button type="button" name="button" class="editVenueButton btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        <button type="button" name="button" class="editButton btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 Edit</button>
-            <form class="" action="/edit/band/@band.GetId()" method="post" class="">
+            <form class="editButtonShow" action="/edit/band/@band.GetId()" method="post" class="">
               <input type="hidden" name="_method" value="PATCH">
               <label for="edit-band-name">Enter New Name</label>
-              <input type="text" class="form-control editNameInput"  id="edit-band-name" name="edit-band-name" value="">
+              <input type="text" class="form-control editNameInput"  id="edit-band-name" name="edit-band-name" value="" placeholder=@band.GetName()>
+
+              <label for="edit-band-date">Enter Create_Date</label>
+              <input type="date" class="form-control editNameInput"  id="edit-band-date" name="edit-band-date" value=@band.GetCreateDate() placeholder=@band.GetCreateDate()>
+
               <button type="submit" class="btn btn-success btn-lg btn-block" name="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 Change to New Name</button>
             </form>
