@@ -8,7 +8,10 @@ namespace BandTracker
   {
     public HomeModule()
     {
-
+      Get["/"] = _ => {
+        Dictionary<string,object> model=Member.AllData("Welcome");
+        return View["index.cshtml", model];
+      };
     }
   }
 }
