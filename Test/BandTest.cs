@@ -137,6 +137,21 @@ namespace BandTracker
       Assert.Equal(testVenueBands, resultVenueBands);
     }
 
+    [Fact]
+    public void Test_UpDateInDatabase()
+    {
+      //Arrange
+      DateTime testTime = new DateTime(2016, 1, 1);
+      string testName = "A";
+      Band testBand = new Band(testName,testTime);
+      testBand.Save();
+      testBand.Update("B",testTime);
+      //Act
+      //Assert
+      Assert.Equal("B", testBand.GetName());
+    }
+
+
     public void Dispose()
     {
       Band.DeleteAll();
